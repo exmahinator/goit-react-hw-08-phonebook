@@ -6,15 +6,12 @@ import {
   ContactButton,
   InfoContainer,
 } from 'components/ui';
+import PropTypes from 'prop-types';
 
 const ContactList = ({ contacts, onContactDelete }) => {
   return (
     <Container>
       <h2>Contacts</h2>
-
-      {/* <Filter ... /> */}
-      {/* <ContactList ... /> */}
-
       <ul>
         {contacts.map(({ id, name, number }) => {
           return (
@@ -41,3 +38,8 @@ const ContactList = ({ contacts, onContactDelete }) => {
 };
 
 export default ContactList;
+
+ContactList.propTypes = {
+  contacts: PropTypes.arrayOf(PropTypes.object).isRequired,
+  onContactDelete: PropTypes.func.isRequired,
+};

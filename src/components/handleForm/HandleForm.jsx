@@ -7,6 +7,7 @@ import {
   InputField,
 } from 'components/ui';
 import { nanoid } from 'nanoid';
+import PropTypes from 'prop-types';
 
 class HandleForm extends Component {
   state = {
@@ -22,22 +23,8 @@ class HandleForm extends Component {
     this.setState({ [name]: value });
   };
 
-  // checkForDuplicate = () => {
-  //   const normalizedFilter = this.state.name.toLowerCase();
-  //   const contacts = this.props.contacts;
-  //   const match = contacts.filter(contact =>
-  //     contact.name.toLowerCase().includes(normalizedFilter)
-  //   );
-  //   if (match.length >= 1) {
-  //     alert(`${this.state.name} is already in contacts!`);
-  //     return;
-  //   }
-  // };
-
   onSubmit = event => {
     event.preventDefault();
-
-    // this.checkForDuplicate();
 
     const normalizedFilter = this.state.name.toLowerCase();
     const contacts = this.props.contacts;
@@ -101,3 +88,8 @@ class HandleForm extends Component {
 }
 
 export default HandleForm;
+
+HandleForm.propTypes = {
+  contacts: PropTypes.arrayOf(PropTypes.object).isRequired,
+  onSubmit: PropTypes.func.isRequired,
+};
