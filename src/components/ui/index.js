@@ -1,0 +1,9 @@
+export { default as ContactsItem } from './ContactsItem.styled';
+export { default as ContactsInfo } from './ContactsInfo.styled';
+export { default as Container } from './Container.styled';
+export { default as ContactButton } from './ContactButton.styled';
+export { default as InfoContainer } from './InfoContainer.styled';
+export { default as ContactForm } from './ContactForm.styled';
+export { default as ContactLabel } from './ContactLabel.styled';
+export { default as ContactFilter } from './ContactFilter.styled';
+export { default as InputField } from './InputField.styled';
