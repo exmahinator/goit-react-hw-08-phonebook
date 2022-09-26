@@ -28,10 +28,12 @@ class HandleForm extends Component {
 
     const normalizedFilter = this.state.name.toLowerCase();
     const contacts = this.props.contacts;
-    const match = contacts.filter(contact =>
-      contact.name.toLowerCase().includes(normalizedFilter)
-    );
-    if (match.length >= 1) {
+
+    const isPresent = contacts.some(contact => {
+      return contact.name.toLowerCase() === normalizedFilter;
+    });
+
+    if (isPresent) {
       alert(`${this.state.name} is already in contacts!`);
       return;
     }
@@ -47,6 +49,7 @@ class HandleForm extends Component {
   };
 
   render() {
+    // console.log(this.props.contacts);
     return (
       <section>
         <Container>
