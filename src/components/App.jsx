@@ -15,10 +15,28 @@ class App extends Component {
     filter: '',
   };
 
+  componentDidMount() {
+    const savedContacts = localStorage.getItem('contacts');
+    const parsedContacts = JSON.parse(savedContacts);
+
+    console.log(parsedContacts);
+
+    if (Array.isArray(parsedContacts) && parsedContacts.length) {
+      this.setState({
+        contacts: parsedContacts,
+      });
+    }
+  }
+
   formSubmitHandler = contact => {
-    this.setState(({ contacts }) => ({
-      contacts: [contact, ...contacts],
-    }));
+    this.setState(({ contacts }) => {
+      const newContacts = [contact, ...contacts];
+      localStorage.setItem('contacts', JSON.stringify(newContacts));
+
+      return {
+        contacts: newContacts,
+      };
+    });
   };
 
   changeFilter = event => {
@@ -34,9 +52,16 @@ class App extends Component {
   };
 
   deleteContact = id => {
-    this.setState(prevState => ({
-      contacts: prevState.contacts.filter(contact => contact.id !== id),
-    }));
+    this.setState(prevState => {
+      const newContacts = prevState.contacts.filter(
+        contact => contact.id !== id
+      );
+      localStorage.setItem('contacts', JSON.stringify(newContacts));
+
+      return {
+        contacts: newContacts,
+      };
+    });
   };
 
   render() {
