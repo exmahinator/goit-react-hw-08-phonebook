@@ -13,7 +13,7 @@ const ContactList = ({ contacts, onContactDelete }) => {
     <Container>
       <h2>Contacts</h2>
       <ul>
-        {contacts.map(({ id, name, number }) => {
+        {contacts().map(({ id, name, number }) => {
           return (
             <ContactsItem key={id}>
               <InfoContainer>
@@ -40,6 +40,6 @@ const ContactList = ({ contacts, onContactDelete }) => {
 export default ContactList;
 
 ContactList.propTypes = {
-  contacts: PropTypes.arrayOf(PropTypes.object).isRequired,
+  contacts: PropTypes.func.isRequired,
   onContactDelete: PropTypes.func.isRequired,
 };
