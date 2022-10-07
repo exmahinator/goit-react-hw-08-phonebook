@@ -1,4 +1,6 @@
 import React, { useState } from 'react';
+import { useSelector, useDispatch } from 'react-redux';
+import { addContact } from 'components/redux/toolkit/slice';
 import {
   Container,
   ContactForm,
@@ -7,9 +9,11 @@ import {
   InputField,
 } from 'components/ui';
 import { nanoid } from 'nanoid';
-import PropTypes from 'prop-types';
 
-const HandleForm = ({ contacts, onSubmit }) => {
+const HandleForm = () => {
+  const contacts = useSelector(state => state.contacts);
+  const dispatch = useDispatch();
+
   const [name, setName] = useState('');
   const [number, setNumber] = useState('');
 
@@ -53,7 +57,7 @@ const HandleForm = ({ contacts, onSubmit }) => {
 
     // це не onSubmit у цьому класі, це проп, в якому знаходиться посилання на метод formSubmitHandler з App
     // тут генерую унікальну ID кожного разу при натисканні Add contact у формі, при сабміті форми
-    onSubmit({ name, number, id: nanoid() });
+    dispatch(addContact({ name, number, id: nanoid() }));
     resetForm();
   };
 
@@ -97,11 +101,6 @@ const HandleForm = ({ contacts, onSubmit }) => {
 };
 
 export default HandleForm;
-
-HandleForm.propTypes = {
-  contacts: PropTypes.arrayOf(PropTypes.object).isRequired,
-  onSubmit: PropTypes.func.isRequired,
-};
 
 // ------------------------------------------------------------------------------------------------------------------------
 // import React, { Component } from 'react';

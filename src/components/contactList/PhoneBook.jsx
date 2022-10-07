@@ -1,4 +1,5 @@
 import React from 'react';
+import { useSelector, useDispatch } from 'react-redux';
 import {
   ContactsItem,
   ContactsInfo,
@@ -6,14 +7,27 @@ import {
   ContactButton,
   InfoContainer,
 } from 'components/ui';
-import PropTypes from 'prop-types';
+import { removeContact } from 'components/redux/toolkit/slice';
 
-const ContactList = ({ contacts, onContactDelete }) => {
+const PhoneBook = () => {
+  const contacts = useSelector(state => state.contacts);
+  const filter = useSelector(state => state.filter);
+  const dispatch = useDispatch();
+
+  const getVisibleContacts = () => {
+    const normalizedFilter = filter.toLowerCase();
+    return filter
+      ? contacts.filter(contact =>
+          contact.name.toLowerCase().includes(normalizedFilter)
+        )
+      : contacts;
+  };
+
   return (
     <Container>
       <h2>Contacts</h2>
       <ul>
-        {contacts().map(({ id, name, number }) => {
+        {getVisibleContacts().map(({ id, name, number }) => {
           return (
             <ContactsItem key={id}>
               <InfoContainer>
@@ -24,7 +38,7 @@ const ContactList = ({ contacts, onContactDelete }) => {
                 delete
                 type="button"
                 onClick={() => {
-                  onContactDelete(id);
+                  dispatch(removeContact(id));
                 }}
               >
                 Delete contact
@@ -37,9 +51,4 @@ const ContactList = ({ contacts, onContactDelete }) => {
   );
 };
 
-export default ContactList;
-
-ContactList.propTypes = {
-  contacts: PropTypes.func.isRequired,
-  onContactDelete: PropTypes.func.isRequired,
-};
+export default PhoneBook;
