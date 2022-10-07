@@ -15,7 +15,7 @@ const PhoneBook = () => {
   const dispatch = useDispatch();
 
   const getVisibleContacts = () => {
-    const normalizedFilter = filter.toLowerCase();
+    const normalizedFilter = filter.trim().toLowerCase();
     return filter
       ? contacts.filter(contact =>
           contact.name.toLowerCase().includes(normalizedFilter)
