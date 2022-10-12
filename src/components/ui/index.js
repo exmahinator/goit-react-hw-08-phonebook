@@ -7,3 +7,4 @@ export { default as ContactForm } from './ContactForm.styled';
 export { default as ContactLabel } from './ContactLabel.styled';
 export { default as ContactFilter } from './ContactFilter.styled';
 export { default as InputField } from './InputField.styled';
+export { default as ContactList } from './ContactList.styled';

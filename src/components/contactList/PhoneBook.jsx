@@ -6,47 +6,61 @@ import {
   Container,
   ContactButton,
   InfoContainer,
+  ContactList,
 } from 'components/ui';
-import { removeContact } from 'components/redux/toolkit/slice';
+import {
+  deleteContact,
+  fetchContacts,
+} from 'components/redux/operations/operations';
+import {
+  selectContactsError,
+  selectContactsLoading,
+  selectVisibleContacts,
+} from 'components/redux/selectors/selectors';
+import { useEffect } from 'react';
 
 const PhoneBook = () => {
-  const contacts = useSelector(state => state.contacts);
-  const filter = useSelector(state => state.filter);
   const dispatch = useDispatch();
 
-  const getVisibleContacts = () => {
-    const normalizedFilter = filter.trim().toLowerCase();
-    return filter
-      ? contacts.filter(contact =>
-          contact.name.toLowerCase().includes(normalizedFilter)
-        )
-      : contacts;
-  };
+  const getVisibleContacts = useSelector(selectVisibleContacts);
+  const getLoading = useSelector(selectContactsLoading);
+  const getError = useSelector(selectContactsError);
+
+  useEffect(() => {
+    dispatch(fetchContacts());
+  }, [dispatch]);
 
   return (
     <Container>
       <h2>Contacts</h2>
-      <ul>
-        {getVisibleContacts().map(({ id, name, number }) => {
-          return (
-            <ContactsItem key={id}>
-              <InfoContainer>
-                <ContactsInfo>{name}</ContactsInfo>
-                <ContactsInfo>{number}</ContactsInfo>
-              </InfoContainer>
-              <ContactButton
-                delete
-                type="button"
-                onClick={() => {
-                  dispatch(removeContact(id));
-                }}
-              >
-                Delete contact
-              </ContactButton>
-            </ContactsItem>
-          );
-        })}
-      </ul>
+      {getLoading && <p>Loading...</p>}
+      {!getError ? (
+        <ContactList>
+          {getVisibleContacts.map(({ id, name, phone }) => {
+            return (
+              <ContactsItem key={id}>
+                <InfoContainer>
+                  <ContactsInfo>{name}</ContactsInfo>
+                  <ContactsInfo>{phone}</ContactsInfo>
+                </InfoContainer>
+                <ContactButton
+                  delete
+                  type="button"
+                  disabled={getLoading}
+                  onClick={() => {
+                    // console.log(`ID:`, id);
+                    dispatch(deleteContact(id));
+                  }}
+                >
+                  Delete contact
+                </ContactButton>
+              </ContactsItem>
+            );
+          })}
+        </ContactList>
+      ) : (
+        <p>Something went wrong... Try again later...</p>
+      )}
     </Container>
   );
 };

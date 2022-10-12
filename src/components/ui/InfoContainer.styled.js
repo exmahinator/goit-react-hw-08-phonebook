@@ -4,7 +4,7 @@ const InfoContainer = styled.div`
   display: flex;
   justify-content: space-between;
   flex-grow: 1;
-  margin-right: 100px;
+  margin-right: 60px;
 `;
 
 export default InfoContainer;

@@ -1,9 +1,10 @@
 import { useSelector, useDispatch } from 'react-redux';
-import { filterForContact } from 'components/redux/toolkit/slice';
+import { filterContacts } from 'components/redux/toolkit/contactsSlice';
 import { Container, ContactFilter, InputField } from 'components/ui';
+import { selectContactsFilter } from 'components/redux/selectors/selectors';
 
 const FilterContacts = () => {
-  const filter = useSelector(state => state.filter);
+  const filter = useSelector(selectContactsFilter);
   const dispatch = useDispatch();
   return (
     <Container afar>
@@ -12,7 +13,7 @@ const FilterContacts = () => {
         <InputField
           type="text"
           value={filter}
-          onChange={event => dispatch(filterForContact(event.target.value))}
+          onChange={event => dispatch(filterContacts(event.target.value))}
           placeholder="Please enter filter search value..."
         />
       </ContactFilter>
