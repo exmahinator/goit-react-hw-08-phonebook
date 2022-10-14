@@ -8,7 +8,6 @@ export const selectContactsFilter = state => state.contacts.filter;
 export const selectVisibleContacts = createSelector(
   [selectContacts, selectContactsFilter],
   (contacts, contactsFilter) => {
-    // console.log('Receiving visible contacts...');
     const normalizedFilter = contactsFilter.trim().toLowerCase();
     return contactsFilter
       ? contacts.filter(contact =>

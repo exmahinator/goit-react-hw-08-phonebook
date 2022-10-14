@@ -3,7 +3,6 @@ import { useSelector, useDispatch } from 'react-redux';
 import {
   ContactsItem,
   ContactsInfo,
-  Container,
   ContactButton,
   InfoContainer,
   ContactList,
@@ -11,12 +10,12 @@ import {
 import {
   deleteContact,
   fetchContacts,
-} from 'components/redux/operations/operations';
+} from 'components/redux/contacts/contactsOperations';
 import {
   selectContactsError,
   selectContactsLoading,
   selectVisibleContacts,
-} from 'components/redux/selectors/selectors';
+} from 'components/redux/contacts/contactsSelectors';
 import { useEffect } from 'react';
 
 const PhoneBook = () => {
@@ -31,7 +30,7 @@ const PhoneBook = () => {
   }, [dispatch]);
 
   return (
-    <Container>
+    <>
       <h2>Contacts</h2>
       {getLoading && <p>Loading...</p>}
       {!getError ? (
@@ -48,7 +47,6 @@ const PhoneBook = () => {
                   type="button"
                   disabled={getLoading}
                   onClick={() => {
-                    // console.log(`ID:`, id);
                     dispatch(deleteContact(id));
                   }}
                 >
@@ -61,7 +59,7 @@ const PhoneBook = () => {
       ) : (
         <p>Something went wrong... Try again later...</p>
       )}
-    </Container>
+    </>
   );
 };
 

@@ -1,9 +1,5 @@
 import { createSlice } from '@reduxjs/toolkit';
-import {
-  fetchContacts,
-  addContact,
-  deleteContact,
-} from '../operations/operations';
+import { fetchContacts, addContact, deleteContact } from './contactsOperations';
 
 const initialState = {
   contacts: {
@@ -51,7 +47,6 @@ const sliceContacts = createSlice({
     [deleteContact.fulfilled](state, action) {
       state.contacts.isLoading = false;
       state.contacts.error = null;
-      // console.log('Payload', action.payload);
       const index = state.contacts.items.findIndex(
         contact => contact.id === action.payload.id
       );

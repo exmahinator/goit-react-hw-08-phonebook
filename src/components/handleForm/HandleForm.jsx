@@ -1,15 +1,14 @@
 import React, { useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
-import { addContact } from 'components/redux/operations/operations';
+import { addContact } from 'components/redux/contacts/contactsOperations';
 import {
-  Container,
   ContactForm,
   ContactLabel,
   ContactButton,
   InputField,
 } from 'components/ui';
 import { nanoid } from 'nanoid';
-import { selectContacts } from 'components/redux/selectors/selectors';
+import { selectContacts } from 'components/redux/contacts/contactsSelectors';
 
 const HandleForm = () => {
   const contacts = useSelector(selectContacts);
@@ -63,41 +62,39 @@ const HandleForm = () => {
   };
 
   return (
-    <section>
-      <Container>
-        <h1>Phonebook</h1>
-        {/* <ContactForm ... /> */}
-        <ContactForm onSubmit={submitForm}>
-          <ContactLabel htmlFor={uniqueNameId}>
-            Name:
-            <InputField
-              type="text"
-              name="name"
-              pattern="^[a-zA-Zа-яА-Я]+(([' -][a-zA-Zа-яА-Я ])?[a-zA-Zа-яА-Я]*)*$"
-              title="Name may contain only letters, apostrophe, dash and spaces. For example Adrian, Jacob Mercer, Charles de Batz de Castelmore d'Artagnan"
-              value={name}
-              onChange={onInput}
-              id={uniqueNameId}
-              required
-            />
-          </ContactLabel>
-          <ContactLabel htmlFor={uniqueNumberId}>
-            Number:
-            <InputField
-              type="tel"
-              name="number"
-              pattern="\+?\d{1,4}?[-.\s]?\(?\d{1,3}?\)?[-.\s]?\d{1,4}[-.\s]?\d{1,4}[-.\s]?\d{1,9}"
-              title="Phone number must be digits and can contain spaces, dashes, parentheses and can start with +"
-              value={number}
-              onChange={onInput}
-              id={uniqueNumberId}
-              required
-            />
-          </ContactLabel>
-          <ContactButton type="submit">Add contact</ContactButton>
-        </ContactForm>
-      </Container>
-    </section>
+    <>
+      <h1>Phonebook</h1>
+      {/* <ContactForm ... /> */}
+      <ContactForm onSubmit={submitForm}>
+        <ContactLabel htmlFor={uniqueNameId}>
+          Name:
+          <InputField
+            type="text"
+            name="name"
+            pattern="^[a-zA-Zа-яА-Я]+(([' -][a-zA-Zа-яА-Я ])?[a-zA-Zа-яА-Я]*)*$"
+            title="Name may contain only letters, apostrophe, dash and spaces. For example Adrian, Jacob Mercer, Charles de Batz de Castelmore d'Artagnan"
+            value={name}
+            onChange={onInput}
+            id={uniqueNameId}
+            required
+          />
+        </ContactLabel>
+        <ContactLabel htmlFor={uniqueNumberId}>
+          Number:
+          <InputField
+            type="tel"
+            name="number"
+            pattern="\+?\d{1,4}?[-.\s]?\(?\d{1,3}?\)?[-.\s]?\d{1,4}[-.\s]?\d{1,4}[-.\s]?\d{1,9}"
+            title="Phone number must be digits and can contain spaces, dashes, parentheses and can start with +"
+            value={number}
+            onChange={onInput}
+            id={uniqueNumberId}
+            required
+          />
+        </ContactLabel>
+        <ContactButton type="submit">Add contact</ContactButton>
+      </ContactForm>
+    </>
   );
 };
 
