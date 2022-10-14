@@ -5,7 +5,6 @@ const ActivePageLink = styled(NavLink)`
   display: flex;
   justify-content: center;
   align-items: center;
-  /* width: 100%; */
   text-decoration: none;
   background-color: aquamarine;
   padding: 10px;
