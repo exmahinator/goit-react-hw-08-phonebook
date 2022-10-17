@@ -1,4 +1,4 @@
-import axios from 'axios';
+import axios from 'config';
 
 import { createAsyncThunk } from '@reduxjs/toolkit';
 
@@ -6,8 +6,9 @@ export const fetchContacts = createAsyncThunk(
   'contacts/fetchAll',
   async (_, thunkAPI) => {
     try {
-      const { data } = await axios.get('/contacts');
-      return data;
+      const res = await axios.get('/contacts');
+      console.log(res.data);
+      return res.data;
     } catch (error) {
       return thunkAPI.rejectWithValue(error.message);
     }

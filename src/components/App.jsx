@@ -1,29 +1,35 @@
 import { useEffect } from 'react';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { Navigate, Route, Routes } from 'react-router-dom';
 import '../config';
 import { Layout } from './Layout';
 import { useAuth } from './hooks';
 import { refreshUser } from './redux/auth/authOperations';
-// import { lazy } from 'react';
+import { lazy } from 'react';
 
-import { HomePage, RegisterPage, LoginPage, ContactsPage } from 'pages';
+// import { HomePage, RegisterPage, LoginPage, ContactsPage } from 'pages';
 import { Container, Section } from './ui';
+import PrivateRoute from './PrivatRoute/PrivatRoute';
+import PublicRoute from './PublicRoute/PublicRoute';
+// import { useState } from 'react';
 // import { PrivateRoute } from './PrivateRoute';
 // import { RestrictedRoute } from './RestrictedRoute';
 
-// const HomePage = lazy(() => import('../pages'));
-// const RegisterPage = lazy(() => import('../pages'));
-// const LoginPage = lazy(() => import('../pages'));
-// const ContactsPage = lazy(() => import('../pages'));
+const HomePage = lazy(() => import('../pages/Home'));
+const RegisterPage = lazy(() => import('../pages/Register'));
+const LoginPage = lazy(() => import('../pages/Login'));
+const ContactsPage = lazy(() => import('../pages/Contacts'));
 
 const App = () => {
+  const token = useSelector(state => state.auth.token);
   const dispatch = useDispatch();
   const { isRefreshing } = useAuth();
 
   useEffect(() => {
-    dispatch(refreshUser());
-  }, [dispatch]);
+    token && dispatch(refreshUser());
+
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [token]);
 
   return isRefreshing ? (
     <Section>
@@ -34,28 +40,38 @@ const App = () => {
   ) : (
     <Routes>
       <Route path="/" element={<Layout />}>
-        <Route index element={<HomePage />} />
-        <Route path="/register" element={<RegisterPage />} />
-        <Route path="/login" element={<LoginPage />} />
-        <Route path="/contacts" element={<ContactsPage />} />
-        {/* <Route
+        <Route
+          index
+          element={
+            <PublicRoute>
+              <HomePage />
+            </PublicRoute>
+          }
+        />
+        <Route
           path="/register"
           element={
-            <RestrictedRoute redirectTo="/tasks" component={<RegisterPage />} />
+            <PublicRoute restricted redirect="/contacts">
+              <RegisterPage />
+            </PublicRoute>
           }
         />
         <Route
           path="/login"
           element={
-            <RestrictedRoute redirectTo="/tasks" component={<LoginPage />} />
+            <PublicRoute restricted redirect="/contacts">
+              <LoginPage />
+            </PublicRoute>
           }
         />
         <Route
-          path="/tasks"
+          path="/contacts"
           element={
-            <PrivateRoute redirectTo="/login" component={<TasksPage />} />
+            <PrivateRoute redirect="/register">
+              <ContactsPage />
+            </PrivateRoute>
           }
-        /> */}
+        />
       </Route>
       <Route path="*" element={<Navigate to="/" />} />
     </Routes>

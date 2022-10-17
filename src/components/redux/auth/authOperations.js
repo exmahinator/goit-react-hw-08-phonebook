@@ -1,15 +1,7 @@
-import axios from 'axios';
+import axios from 'config';
+
 import { createAsyncThunk } from '@reduxjs/toolkit';
-
-// Utility to add JWT
-const setAuthHeader = token => {
-  axios.defaults.headers.common.Authorization = `Bearer ${token}`;
-};
-
-// Utility to remove JWT
-const clearAuthHeader = () => {
-  axios.defaults.headers.common.Authorization = '';
-};
+import { setAuthHeader, clearAuthHeader } from 'config';
 
 /*
  * POST @ /users/signup
@@ -80,7 +72,7 @@ export const refreshUser = createAsyncThunk(
     try {
       // If there is a token, add it to the HTTP header and perform the request
       setAuthHeader(persistedToken);
-      const res = await axios.get('/users/me');
+      const res = await axios.get('/users/current');
       return res.data;
     } catch (error) {
       return thunkAPI.rejectWithValue(error.message);

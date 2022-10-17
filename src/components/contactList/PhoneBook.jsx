@@ -19,6 +19,7 @@ import {
 import { useEffect } from 'react';
 
 const PhoneBook = () => {
+  const token = useSelector(state => state.auth.token);
   const dispatch = useDispatch();
 
   const getVisibleContacts = useSelector(selectVisibleContacts);
@@ -26,8 +27,14 @@ const PhoneBook = () => {
   const getError = useSelector(selectContactsError);
 
   useEffect(() => {
-    dispatch(fetchContacts());
-  }, [dispatch]);
+    if (token) {
+      console.log(token);
+      setTimeout(() => {
+        dispatch(fetchContacts());
+      }, 400);
+    }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [token]);
 
   return (
     <>
@@ -35,12 +42,12 @@ const PhoneBook = () => {
       {getLoading && <p>Loading...</p>}
       {!getError ? (
         <ContactList>
-          {getVisibleContacts.map(({ id, name, phone }) => {
+          {getVisibleContacts.map(({ id, name, number }) => {
             return (
               <ContactsItem key={id}>
                 <InfoContainer>
                   <ContactsInfo>{name}</ContactsInfo>
-                  <ContactsInfo>{phone}</ContactsInfo>
+                  <ContactsInfo>{number}</ContactsInfo>
                 </InfoContainer>
                 <ContactButton
                   delete

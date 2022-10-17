@@ -58,13 +58,12 @@ const HandleForm = () => {
     // це не onSubmit у цьому класі, це проп, в якому знаходиться посилання на метод formSubmitHandler з App
     // тут генерую унікальну ID кожного разу при натисканні Add contact у формі, при сабміті форми
 
-    dispatch(addContact({ name, phone: number, id: nanoid(), resetForm }));
+    dispatch(addContact({ name, number, resetForm }));
   };
 
   return (
     <>
       <h1>Phonebook</h1>
-      {/* <ContactForm ... /> */}
       <ContactForm onSubmit={submitForm}>
         <ContactLabel htmlFor={uniqueNameId}>
           Name:
