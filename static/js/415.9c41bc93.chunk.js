@@ -1,2 +1,0 @@
-"use strict";(self.webpackChunkgoit_react_hw_08_phonebook=self.webpackChunkgoit_react_hw_08_phonebook||[]).push([[415],{5415:function(e,n,r){r.r(n);var o=r(4837),a=r(3329);n.default=function(){var e=(0,o.a)(),n=e.user,r=e.isLoggedIn;return(0,a.jsx)(a.Fragment,{children:(0,a.jsxs)("h1",{children:["Greeting ",r?n.name:"stranger","! Come in, come in! We are the very"," ",r?"happy to see you again":"waiting for your log-in","!"]})})}}}]);
-//# sourceMappingURL=415.9c41bc93.chunk.js.map
