@@ -1,14 +1,26 @@
 import PhoneBook from 'components/contactList/PhoneBook';
 import HandleForm from 'components/handleForm';
 import FilterContacts from 'components/filterContacts';
+import {
+  ContactsContainer,
+  ContactsSubContainer,
+  ContactsBackgroundContainer,
+} from 'components/ui';
 
 const Contacts = () => {
   return (
-    <>
-      <HandleForm />
-      <FilterContacts />
-      <PhoneBook />
-    </>
+    <ContactsContainer>
+      <ContactsSubContainer>
+        <HandleForm />
+        <ContactsBackgroundContainer />
+      </ContactsSubContainer>
+      <ContactsSubContainer>
+        <FilterContacts />
+      </ContactsSubContainer>
+      <ContactsSubContainer>
+        <PhoneBook />
+      </ContactsSubContainer>
+    </ContactsContainer>
   );
 };
 

@@ -6,15 +6,9 @@ import { Layout } from './Layout';
 import { useAuth } from './hooks';
 import { refreshUser } from './redux/auth/authOperations';
 import { lazy } from 'react';
-
-// import { HomePage, RegisterPage, LoginPage, ContactsPage } from 'pages';
 import { Container, Section } from './ui';
 import PrivateRoute from './PrivatRoute/PrivatRoute';
 import PublicRoute from './PublicRoute/PublicRoute';
-// import { useState } from 'react';
-// import { PrivateRoute } from './PrivateRoute';
-// import { RestrictedRoute } from './RestrictedRoute';
-
 const HomePage = lazy(() => import('../pages/Home'));
 const RegisterPage = lazy(() => import('../pages/Register'));
 const LoginPage = lazy(() => import('../pages/Login'));
@@ -51,7 +45,7 @@ const App = () => {
         <Route
           path="/register"
           element={
-            <PublicRoute restricted redirect="/contacts">
+            <PublicRoute restricted redirect="/">
               <RegisterPage />
             </PublicRoute>
           }
@@ -59,7 +53,7 @@ const App = () => {
         <Route
           path="/login"
           element={
-            <PublicRoute restricted redirect="/contacts">
+            <PublicRoute restricted redirect="/">
               <LoginPage />
             </PublicRoute>
           }

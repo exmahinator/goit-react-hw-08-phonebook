@@ -7,7 +7,6 @@ import {
   ContactButton,
   InputField,
 } from 'components/ui';
-import { nanoid } from 'nanoid';
 import { selectContacts } from 'components/redux/contacts/contactsSelectors';
 
 const HandleForm = () => {
@@ -16,9 +15,6 @@ const HandleForm = () => {
 
   const [name, setName] = useState('');
   const [number, setNumber] = useState('');
-
-  const uniqueNameId = nanoid();
-  const uniqueNumberId = nanoid();
 
   const onInput = event => {
     const { name, value } = event.target;
@@ -55,9 +51,6 @@ const HandleForm = () => {
       return;
     }
 
-    // це не onSubmit у цьому класі, це проп, в якому знаходиться посилання на метод formSubmitHandler з App
-    // тут генерую унікальну ID кожного разу при натисканні Add contact у формі, при сабміті форми
-
     dispatch(addContact({ name, number, resetForm }));
   };
 
@@ -65,7 +58,7 @@ const HandleForm = () => {
     <>
       <h1>Phonebook</h1>
       <ContactForm onSubmit={submitForm}>
-        <ContactLabel htmlFor={uniqueNameId}>
+        <ContactLabel htmlFor="inputNameField">
           Name:
           <InputField
             type="text"
@@ -74,11 +67,11 @@ const HandleForm = () => {
             title="Name may contain only letters, apostrophe, dash and spaces. For example Adrian, Jacob Mercer, Charles de Batz de Castelmore d'Artagnan"
             value={name}
             onChange={onInput}
-            id={uniqueNameId}
+            id="inputNameField"
             required
           />
         </ContactLabel>
-        <ContactLabel htmlFor={uniqueNumberId}>
+        <ContactLabel htmlFor="inputNumberField">
           Number:
           <InputField
             type="tel"
@@ -87,7 +80,7 @@ const HandleForm = () => {
             title="Phone number must be digits and can contain spaces, dashes, parentheses and can start with +"
             value={number}
             onChange={onInput}
-            id={uniqueNumberId}
+            id="inputNumberField"
             required
           />
         </ContactLabel>

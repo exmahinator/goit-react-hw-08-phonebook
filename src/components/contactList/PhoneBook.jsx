@@ -6,6 +6,7 @@ import {
   ContactButton,
   InfoContainer,
   ContactList,
+  ContactsSubTitle,
 } from 'components/ui';
 import {
   deleteContact,
@@ -38,7 +39,7 @@ const PhoneBook = () => {
 
   return (
     <>
-      <h2>Contacts</h2>
+      <ContactsSubTitle>Contacts</ContactsSubTitle>
       {getLoading && <p>Loading...</p>}
       {!getError ? (
         <ContactList>
@@ -57,7 +58,7 @@ const PhoneBook = () => {
                     dispatch(deleteContact(id));
                   }}
                 >
-                  Delete contact
+                  Delete
                 </ContactButton>
               </ContactsItem>
             );
