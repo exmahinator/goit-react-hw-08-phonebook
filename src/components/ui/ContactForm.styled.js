@@ -5,7 +5,9 @@ const ContactForm = styled.form`
   align-items: flex-start;
   justify-content: center;
   flex-direction: column;
-  width: 80%;
+  width: 100%;
+  padding-left: 20px;
+  padding-right: 20px;
 `;
 
 export default ContactForm;

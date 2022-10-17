@@ -6,6 +6,8 @@ import {
   ContactButton,
   AuthInput,
   AuthLabel,
+  AuthSubContainer,
+  AuthTitle,
 } from 'components/ui';
 import { selectContacts } from 'components/redux/contacts/contactsSelectors';
 
@@ -56,33 +58,39 @@ const HandleForm = () => {
 
   return (
     <>
-      <h1>Phonebook</h1>
+      <AuthTitle>Phonebook</AuthTitle>
       <ContactForm onSubmit={submitForm}>
-        <AuthLabel htmlFor="inputNameField">Name of your bestie:</AuthLabel>
-        <AuthInput
-          type="text"
-          name="name"
-          pattern="^[a-zA-Zа-яА-Я]+(([' -][a-zA-Zа-яА-Я ])?[a-zA-Zа-яА-Я]*)*$"
-          title="Name may contain only letters, apostrophe, dash and spaces. For example Adrian, Jacob Mercer, Charles de Batz de Castelmore d'Artagnan"
-          value={name}
-          onChange={onInput}
-          id="inputNameField"
-          required
-        />
+        <AuthSubContainer>
+          <AuthLabel htmlFor="inputNameField">Name of your bestie:</AuthLabel>
+          <AuthInput
+            type="text"
+            name="name"
+            pattern="^[a-zA-Zа-яА-Я]+(([' -][a-zA-Zа-яА-Я ])?[a-zA-Zа-яА-Я]*)*$"
+            title="Name may contain only letters, apostrophe, dash and spaces. For example Adrian, Jacob Mercer, Charles de Batz de Castelmore d'Artagnan"
+            value={name}
+            onChange={onInput}
+            id="inputNameField"
+            placeholder="Needs to add the name of friend"
+            required
+          />
+        </AuthSubContainer>
 
-        <AuthLabel htmlFor="inputNumberField">
-          Friend's telepathy number:
-        </AuthLabel>
-        <AuthInput
-          type="tel"
-          name="number"
-          pattern="\+?\d{1,4}?[-.\s]?\(?\d{1,3}?\)?[-.\s]?\d{1,4}[-.\s]?\d{1,4}[-.\s]?\d{1,9}"
-          title="Phone number must be digits and can contain spaces, dashes, parentheses and can start with +"
-          value={number}
-          onChange={onInput}
-          id="inputNumberField"
-          required
-        />
+        <AuthSubContainer>
+          <AuthLabel htmlFor="inputNumberField">
+            Friend's telepathy number:
+          </AuthLabel>
+          <AuthInput
+            type="tel"
+            name="number"
+            pattern="\+?\d{1,4}?[-.\s]?\(?\d{1,3}?\)?[-.\s]?\d{1,4}[-.\s]?\d{1,4}[-.\s]?\d{1,9}"
+            title="Phone number must be digits and can contain spaces, dashes, parentheses and can start with +"
+            value={number}
+            onChange={onInput}
+            id="inputNumberField"
+            placeholder="and his number on the Earth"
+            required
+          />
+        </AuthSubContainer>
 
         <ContactButton type="submit">Add contact</ContactButton>
       </ContactForm>

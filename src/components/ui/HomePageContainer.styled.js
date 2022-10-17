@@ -21,6 +21,7 @@ const HomePageContainer = styled.div`
   -webkit-box-shadow: 3px 10px 13px 0px rgba(0, 0, 0, 0.5);
   -moz-box-shadow: 3px 10px 13px 0px rgba(0, 0, 0, 0.5);
   border-bottom: 4px solid transparent;
+  text-shadow: 2px 2px 3px rgb(112, 50, 118);
 `;
 
 export default HomePageContainer;

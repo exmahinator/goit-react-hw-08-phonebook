@@ -9,6 +9,7 @@ const PageAuthButton = styled.button`
   border-radius: 10px;
   cursor: pointer;
   border: transparent;
+  color: rgb(112, 50, 118);
 
   background: linear-gradient(
     90deg,
