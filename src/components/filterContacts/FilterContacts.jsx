@@ -1,7 +1,8 @@
 import { useSelector, useDispatch } from 'react-redux';
 import { filterContacts } from 'components/redux/contacts/contactsSlice';
-import { ContactFilter, InputField } from 'components/ui';
+import { ContactFilter } from 'components/ui';
 import { selectContactsFilter } from 'components/redux/contacts/contactsSelectors';
+import { AuthLabel, AuthInput } from 'components/ui';
 
 const FilterContacts = () => {
   const filter = useSelector(selectContactsFilter);
@@ -9,12 +10,13 @@ const FilterContacts = () => {
   return (
     <>
       <ContactFilter>
-        Find contacts by name
-        <InputField
+        <AuthLabel htmlFor="search">Whom do we need to find today?</AuthLabel>
+        <AuthInput
+          id="search"
           type="text"
           value={filter}
           onChange={event => dispatch(filterContacts(event.target.value))}
-          placeholder="Please enter filter search value..."
+          placeholder="What is the name of my friend..."
         />
       </ContactFilter>
     </>

@@ -2,10 +2,12 @@ import styled from 'styled-components';
 
 const ContactButton = styled.button`
   font-size: inherit;
-  padding: 5px 10px;
+  padding: 10px;
   border-radius: 20px;
   background-color: rgba(255, 255, 255, 0.85);
   font-size: ${props => (props.delete ? '16px' : '32px')};
+  color: rgb(112, 50, 118);
+  margin: ${props => (props.delete ? '0' : '30px 0 0 0')};
 
   opacity: 0.75;
   transition: opacity 250ms cubic-bezier(0.4, 0, 0.2, 1),

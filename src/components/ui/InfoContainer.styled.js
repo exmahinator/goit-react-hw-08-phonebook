@@ -1,10 +1,10 @@
 import styled from 'styled-components';
 
 const InfoContainer = styled.div`
+  width: 100%;
   display: flex;
   justify-content: space-between;
-  flex-grow: 1;
-  margin-right: 60px;
+  margin-right: 50px;
 `;
 
 export default InfoContainer;

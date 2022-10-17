@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import Inn from '../../images/InnOpt02.jpg';
+import Inn from '../../images/InnOpt04.jpg';
 
 const AuthBackground = styled.div`
   position: absolute;
@@ -10,7 +10,6 @@ const AuthBackground = styled.div`
   left: 0;
   background-image: linear-gradient(to right, cyan, lightgreen);
   background-image: url(${Inn});
-  background-size: cover;
   opacity: 0.9;
   border-radius: 20px;
 `;

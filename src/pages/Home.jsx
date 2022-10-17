@@ -24,7 +24,7 @@ const Home = () => {
               <HomePageAccent>{user.name}</HomePageAccent>
               <span>! Please, </span>
               <HomePageLink to="/contacts">come in</HomePageLink>
-              <span> ! Very glad to see you here!</span>
+              <span> ! Glad to see you here again!</span>
             </>
           ) : (
             <>

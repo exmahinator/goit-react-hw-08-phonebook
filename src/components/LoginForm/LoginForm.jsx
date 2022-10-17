@@ -31,7 +31,7 @@ const LoginForm = () => {
       <AuthTitle>
         Here's some beer for you to cheer!
         <br />
-        Tell your name and we'll begin!
+        Remind your name and we'll begin!
       </AuthTitle>
       <AuthForm onSubmit={handleSubmit}>
         <AuthSubContainer>

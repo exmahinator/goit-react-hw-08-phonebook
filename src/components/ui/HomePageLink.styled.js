@@ -10,11 +10,12 @@ const HomePageLink = styled(Link)`
   background-color: transparent;
   cursor: pointer;
   border: none;
-  border-radius: 10px;
+  border-radius: 15px;
+
+  transition: outline 250ms cubic-bezier(0.4, 0, 0.2, 1);
   &:hover,
   &:focus {
-    outline: 3px solid rgba(205, 231, 176, 0.5);
-    outline-style: dotted;
+    outline: 3px dotted rgba(205, 231, 176);
   }
 `;
 

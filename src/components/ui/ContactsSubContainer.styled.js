@@ -6,17 +6,18 @@ const ContactsSubContainer = styled.div`
   flex-direction: column;
   justify-content: center;
   align-items: center;
+
   &:last-child {
     padding-bottom: 15px;
     background: linear-gradient(
       180deg,
       rgba(255, 255, 255, 0) 5%,
-      rgba(173, 133, 99, 1) 60%
+      rgba(173, 133, 99, 1) 45%
     );
     border-radius: 50px;
   }
   &:not(:last-child) {
-    margin-bottom: 30px;
+    margin-bottom: 20px;
   }
 `;
 

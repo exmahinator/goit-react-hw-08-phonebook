@@ -29,7 +29,6 @@ const PhoneBook = () => {
 
   useEffect(() => {
     if (token) {
-      console.log(token);
       setTimeout(() => {
         dispatch(fetchContacts());
       }, 400);
@@ -40,7 +39,7 @@ const PhoneBook = () => {
   return (
     <>
       <ContactsSubTitle>Contacts</ContactsSubTitle>
-      {getLoading && <p>Loading...</p>}
+      {getLoading && <p>Casting spell...</p>}
       {!getError ? (
         <ContactList>
           {getVisibleContacts.map(({ id, name, number }) => {
@@ -65,7 +64,7 @@ const PhoneBook = () => {
           })}
         </ContactList>
       ) : (
-        <p>Something went wrong... Try again later...</p>
+        <p>Alchemical laboratory is currently closed... Try again later...</p>
       )}
     </>
   );

@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 
 const AuthSubContainer = styled.div`
-  width: 100%;
+  width: 40vw;
   display: flex;
   flex-direction: column;
   justify-content: center;
