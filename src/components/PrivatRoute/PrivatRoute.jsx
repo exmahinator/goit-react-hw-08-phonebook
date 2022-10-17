@@ -1,5 +1,6 @@
 import { useSelector } from 'react-redux';
 import { Navigate } from 'react-router-dom';
+import PropTypes from 'prop-types';
 import { selectIsLoggedIn } from '../redux/auth/authSelectors';
 
 const PrivateRoute = ({ children, redirect = '/' }) => {
@@ -9,3 +10,8 @@ const PrivateRoute = ({ children, redirect = '/' }) => {
 };
 
 export default PrivateRoute;
+
+PrivateRoute.propTypes = {
+  redirect: PropTypes.string.isRequired,
+  children: PropTypes.object.isRequired,
+};

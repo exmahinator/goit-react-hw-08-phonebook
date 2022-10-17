@@ -4,6 +4,7 @@ const ContactButton = styled.button`
   font-size: inherit;
   padding: 10px;
   border-radius: 20px;
+  border-color: transparent;
   background-color: rgba(255, 255, 255, 0.85);
   font-size: ${props => (props.delete ? '16px' : '32px')};
   color: rgb(112, 50, 118);

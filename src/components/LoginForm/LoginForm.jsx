@@ -35,7 +35,7 @@ const LoginForm = () => {
       </AuthTitle>
       <AuthForm onSubmit={handleSubmit}>
         <AuthSubContainer>
-          <AuthLabel for="email">Email:</AuthLabel>
+          <AuthLabel htmlFor="email">Email:</AuthLabel>
           <AuthInput
             id="email"
             type="email"
@@ -44,7 +44,7 @@ const LoginForm = () => {
           />
         </AuthSubContainer>
         <AuthSubContainer>
-          <AuthLabel for="password">Password:</AuthLabel>
+          <AuthLabel htmlFor="password">Password:</AuthLabel>
           <AuthInput
             id="password"
             type="password"
