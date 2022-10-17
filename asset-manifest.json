@@ -1,24 +1,24 @@
 {
   "files": {
     "main.css": "/goit-react-hw-08-phonebook/static/css/main.a7c499b6.css",
-    "main.js": "/goit-react-hw-08-phonebook/static/js/main.09554a39.js",
+    "main.js": "/goit-react-hw-08-phonebook/static/js/main.ea221bc3.js",
     "static/js/415.58cd4693.chunk.js": "/goit-react-hw-08-phonebook/static/js/415.58cd4693.chunk.js",
     "static/js/519.75789449.chunk.js": "/goit-react-hw-08-phonebook/static/js/519.75789449.chunk.js",
     "static/js/687.ffb2851d.chunk.js": "/goit-react-hw-08-phonebook/static/js/687.ffb2851d.chunk.js",
-    "static/js/937.32424427.chunk.js": "/goit-react-hw-08-phonebook/static/js/937.32424427.chunk.js",
+    "static/js/937.05803519.chunk.js": "/goit-react-hw-08-phonebook/static/js/937.05803519.chunk.js",
     "static/media/InnOpt04.jpg": "/goit-react-hw-08-phonebook/static/media/InnOpt04.09732002e42cc3d6ce7e.jpg",
     "static/media/InnOpt03.jpg": "/goit-react-hw-08-phonebook/static/media/InnOpt03.537387ab44674c8ba292.jpg",
     "static/media/InnOpt.jpg": "/goit-react-hw-08-phonebook/static/media/InnOpt.7a0beb15220015f0160a.jpg",
     "index.html": "/goit-react-hw-08-phonebook/index.html",
     "main.a7c499b6.css.map": "/goit-react-hw-08-phonebook/static/css/main.a7c499b6.css.map",
-    "main.09554a39.js.map": "/goit-react-hw-08-phonebook/static/js/main.09554a39.js.map",
+    "main.ea221bc3.js.map": "/goit-react-hw-08-phonebook/static/js/main.ea221bc3.js.map",
     "415.58cd4693.chunk.js.map": "/goit-react-hw-08-phonebook/static/js/415.58cd4693.chunk.js.map",
     "519.75789449.chunk.js.map": "/goit-react-hw-08-phonebook/static/js/519.75789449.chunk.js.map",
     "687.ffb2851d.chunk.js.map": "/goit-react-hw-08-phonebook/static/js/687.ffb2851d.chunk.js.map",
-    "937.32424427.chunk.js.map": "/goit-react-hw-08-phonebook/static/js/937.32424427.chunk.js.map"
+    "937.05803519.chunk.js.map": "/goit-react-hw-08-phonebook/static/js/937.05803519.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.a7c499b6.css",
-    "static/js/main.09554a39.js"
+    "static/js/main.ea221bc3.js"
   ]
 }
