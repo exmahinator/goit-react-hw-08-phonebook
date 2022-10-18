@@ -38,7 +38,7 @@ const PhoneBook = () => {
 
   return (
     <>
-      <ContactsSubTitle>Contacts</ContactsSubTitle>
+      <ContactsSubTitle>Your dear friends:</ContactsSubTitle>
       {getLoading && <p>Casting spell...</p>}
       {!getError ? (
         <ContactList>
