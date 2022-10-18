@@ -11,6 +11,6 @@ const PrivateRoute = ({ children, redirect = '/' }) => {
 export default PrivateRoute;
 
 PrivateRoute.propTypes = {
-  redirect: PropTypes.string.isRequired,
-  children: PropTypes.object.isRequired,
+  redirect: PropTypes.string,
+  children: PropTypes.node.isRequired,
 };

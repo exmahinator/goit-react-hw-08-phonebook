@@ -17,7 +17,7 @@ export default PublicRoute;
 
 PublicRoute.propTypes = {
   // Чомусь не відпрацьовує ПропТайпс. На обидва поля пише "undefined"...
-  // redirect: PropTypes.string.isRequired,
-  // restricted: PropTypes.bool.isRequired,
-  children: PropTypes.object.isRequired,
+  redirect: PropTypes.string,
+  restricted: PropTypes.bool,
+  children: PropTypes.node.isRequired,
 };
