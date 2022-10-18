@@ -27,6 +27,8 @@ const PhoneBook = () => {
   const getLoading = useSelector(selectContactsLoading);
   const getError = useSelector(selectContactsError);
 
+  const listLength = getVisibleContacts.length;
+
   useEffect(() => {
     if (token) {
       setTimeout(() => {
@@ -40,7 +42,13 @@ const PhoneBook = () => {
     <>
       <ContactsSubTitle>Your dear friends:</ContactsSubTitle>
       {getLoading && <p>Casting spell...</p>}
-      {!getError ? (
+      {getError && (
+        <ContactsInfo>
+          Alchemical laboratory is currently not brewing... Please come again
+          later...
+        </ContactsInfo>
+      )}
+      {listLength > 0 && !getError ? (
         <ContactList>
           {getVisibleContacts.map(({ id, name, number }) => {
             return (
@@ -64,7 +72,10 @@ const PhoneBook = () => {
           })}
         </ContactList>
       ) : (
-        <p>Alchemical laboratory is currently closed... Try again later...</p>
+        <ContactsInfo>
+          Ohh... You don't have friends yet? Don't worry! Here you will find a
+          lot!
+        </ContactsInfo>
       )}
     </>
   );
